@@ -15,6 +15,6 @@ class MainActivity : Activity() {
         val valor     = findViewById<TextView>(R.id.valor)
         nome.setText("Cesta de frutas")
         descricao.setText("Laranja, Maçã, Uva")
-        valor.setText("19.99")
+        valor.setText("19.90")
     }
 }
