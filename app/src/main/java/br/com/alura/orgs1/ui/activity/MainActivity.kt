@@ -2,16 +2,16 @@ package br.com.alura.orgs1.ui.activity
 
 import android.app.Activity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.alura.orgs1.R
 import br.com.alura.orgs1.ui.model.Produto
 import br.com.alura.orgs1.ui.recyclerview.adapter.ListaProdutosAdapter
 
-class MainActivity : Activity() {
+class MainActivity : AppCompatActivity(R.layout.activety_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activety_main)
 //        val nome = findViewById<TextView>(R.id.nome)
 //        nome.setText("Cesta de frutas")
 //        val descricao = findViewById<TextView>(R.id.descricao)
