@@ -11,12 +11,15 @@ import br.com.alura.orgs1.ui.model.Produto
 
 class ListaProdutosAdapter(
     private val context: Context,
-    private val produtos: List<Produto>
+    produtos: List<Produto>
 ) : RecyclerView.Adapter<ListaProdutosAdapter.ViewHolder>() {
-    class ViewHolder(view:View) : RecyclerView.ViewHolder(view) {
+
+    private val produtos = produtos.toMutableList()
+
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun vincular(produto: Produto) {
-            val nome  = itemView.findViewById<TextView>(R.id.nome)
-            val descricao  = itemView.findViewById<TextView>(R.id.descricao)
+            val nome = itemView.findViewById<TextView>(R.id.nome)
+            val descricao = itemView.findViewById<TextView>(R.id.descricao)
             val valor = itemView.findViewById<TextView>(R.id.valor)
             nome.text = produto.nome
             descricao.text = produto.descricao
@@ -26,7 +29,7 @@ class ListaProdutosAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inFlater = LayoutInflater.from(context)
-        val view = inFlater.inflate(R.layout.produto_item,parent,false)
+        val view = inFlater.inflate(R.layout.produto_item, parent, false)
         return ViewHolder(view)
     }
 
@@ -36,5 +39,11 @@ class ListaProdutosAdapter(
     }
 
     override fun getItemCount(): Int = produtos.size
+    fun atualiza(produtos: List<Produto>) {
+        this.produtos.clear()
+        this.produtos.addAll(produtos)
+        notifyDataSetChanged()
+
+    }
 
 }
